@@ -10,6 +10,7 @@ import Reviews from '../components/Reviews/Reviews';
 export const App = () => {
   return (
     <div className={css.appContainer}>
+      <header>
       <nav>
         <NavLink className={css.navLink} to='/' end> Home </NavLink>
         <NavLink className={css.navLink} to='/movies'>Movies</NavLink>
@@ -23,6 +24,7 @@ export const App = () => {
         </Route>
         <Route path='*' element={<Home />} />
       </Routes>
+      </header>
     </div>
   );
 };

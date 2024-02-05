@@ -1,3 +1,5 @@
+ import MovieDetails from '../'
+ 
  const Home = () => {
  return (
     <div>
