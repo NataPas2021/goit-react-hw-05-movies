@@ -7,5 +7,6 @@ axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 
 
 export const FetchTrendingMovies = async () => {
-    return response = await axios.get()
+    const response = await axios.get();
+    return response;
 }

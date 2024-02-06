@@ -1,9 +1,9 @@
- import MovieDetails from '../'
+ //import MovieDetails from '../'
  
  const Home = () => {
  return (
     <div>
-        
+      
     </div>
  )
 };
