@@ -12,9 +12,10 @@ export const App = () => {
     <div className={css.appContainer}>
       <header>
       <nav>
-        <NavLink className={css.navLink} to='/' end> Home </NavLink>
+        <NavLink className={css.navLink} to='/' end > Home </NavLink>
         <NavLink className={css.navLink} to='/movies'>Movies</NavLink>
       </nav>
+      </header>
       <Routes>
         <Route path='/' element= {<Home />} />
         <Route path='/movies' element= {<Movies />} />
@@ -24,7 +25,6 @@ export const App = () => {
         </Route>
         <Route path='*' element={<Home />} />
       </Routes>
-      </header>
     </div>
   );
 };
