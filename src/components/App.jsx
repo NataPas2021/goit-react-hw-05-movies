@@ -5,13 +5,14 @@ import css from './App.module.css';
 import MovieDetails from './MovieDetails/MovieDetails';
 import Cast from '../components/Cast/Cast';
 import Reviews from '../components/Reviews/Reviews';
+import PageNotFound from '../pages/PageNotFound'
 
 
 export const App = () => {
   return (
-    <div className={css.appContainer}>
+    <div className={css.appContainer} >
       <header>
-      <nav>
+      <nav className={css.menu}>
         <NavLink className={css.navLink} to='/' end > Home </NavLink>
         <NavLink className={css.navLink} to='/movies'>Movies</NavLink>
       </nav>
@@ -23,7 +24,7 @@ export const App = () => {
             <Route path='cast' element={<Cast />} />
             <Route path='reviews' element={<Reviews/>} />
         </Route>
-        <Route path='*' element={<Home />} />
+        <Route path='*' element={<PageNotFound />} />
       </Routes>
     </div>
   );
