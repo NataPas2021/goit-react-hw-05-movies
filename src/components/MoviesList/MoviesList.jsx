@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import {Link} from 'react-router-dom';
-import css from '../Movies/Movies.module.css';
+//import {Link} from 'react-router-dom';
+import css from '../MoviesList/MoviesList.module.css';
 import { FetchTrendingMovies } from "api";
 
-const Movies = () => {
+const MoviesList = () => {
  const [movies, setMovies] = useState();
  const [isLoading, setIsLoading] = useState(false);
  const [error, setError] = useState(null);
@@ -29,21 +29,21 @@ const Movies = () => {
  }, )
  
 
- const elements = movies.map(({ id, title }) => (
-    <li key={id} className={css.item}>
-        <Link to={`/movies/${id}`}>{title}</Link>
-    </li>));
+//  const elements = movies.map(({ id, title }) => (
+//     <li key={id} className={css.item}>
+//         <Link to={`/movies/${id}`}>{title}</Link>
+//     </li>));
 
  return (
     <>
     {error && <p className={css.error}>{error}</p>}
     {isLoading && <p>...Loading</p>}
-    {Boolean(elements.length) && (<ul className={css.list}>
+    {/* {Boolean(elements.length) && (<ul className={css.list}>
         {elements}
-    </ul>)}
+    </ul>)} */}
 </>
  )
 
 }
 
-export default Movies;
+export default MoviesList;

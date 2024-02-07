@@ -1,12 +1,12 @@
  //import MovieDetails from '../'
 
-import Movies from "components/Movies/Movies";
+import MoviesList from "components/MoviesList/MoviesList";
 
  
  const Home = () => {
  return (
     <div>
-      <Movies />
+      <MoviesList />
     </div>
  )
 };
