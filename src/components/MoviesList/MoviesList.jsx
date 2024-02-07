@@ -2,31 +2,42 @@ import { useState, useEffect } from "react";
 //import {Link} from 'react-router-dom';
 import css from '../MoviesList/MoviesList.module.css';
 import { FetchTrendingMovies } from "api";
+//import { fetchTrending } from "api"; 
 
 const MoviesList = () => {
  const [movies, setMovies] = useState();
  const [isLoading, setIsLoading] = useState(false);
  const [error, setError] = useState(null);
 
- useEffect(() => {
-    const fetchMovies = async() => {
-    try{
-        isLoading(true);
-        const {results} = await FetchTrendingMovies();
-        console.log(results);
-        setMovies(results?.length ? results : [])
-    } 
-    catch {
-        setError(error);
+ 
+useEffect(() => {
+    const fetchTrend = async () => {
+        try {
+            setIsLoading(true);
+            const data = await FetchTrendingMovies();
+            console.log(data);
+            setMovies(data?.length ? data : []);
+            console.log(movies);
+        }
+        catch {
+            setError(error);
+        }
+        finally {
+            setIsLoading(false); 
+        }
     }
-    finally {
-        setIsLoading(false);
-    } 
-}
 
- fetchMovies();
+    fetchTrend();
 
- }, )
+}, [])
+
+// useEffect(() => {
+//         fetchTrending()
+//           .then(films => {
+//             setMovies(films.results);
+//           })
+//           .catch(error => console.log(error));
+//       }, []);
  
 
 //  const elements = movies.map(({ id, title }) => (
