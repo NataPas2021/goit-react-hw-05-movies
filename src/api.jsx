@@ -10,8 +10,9 @@ const instance = axios.create ({
 })
 
 
-export const FetchTrendingMovies = () => {
-    return instance.get('/trending/movie/day');  
+export async function FetchTrendingMovies () {
+    const response = await instance.get('/trending/movie/day'); 
+    console.log(response);
+    return response; 
+
 }
-
-

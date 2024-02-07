@@ -12,12 +12,12 @@ const Movies = () => {
     const fetchMovies = async() => {
     try{
         isLoading(true);
-        const {response} = await FetchTrendingMovies();
-        console.log(response);
-        //setMovies(data?.length ? data : [])
+        const {results} = await FetchTrendingMovies();
+        console.log(results);
+        setMovies(results?.length ? results : [])
     } 
     catch {
-        //setError(error.message);
+        setError(error);
     }
     finally {
         setIsLoading(false);
@@ -29,17 +29,18 @@ const Movies = () => {
  }, )
  
 
-//  const elements = movies.map(({ id, title }) => (<li key={id} className={css.item}>
-//         <Link to={`/movies/${id}`}>{title}</Link>
-//     </li>));
+ const elements = movies.map(({ id, title }) => (
+    <li key={id} className={css.item}>
+        <Link to={`/movies/${id}`}>{title}</Link>
+    </li>));
 
  return (
     <>
     {error && <p className={css.error}>{error}</p>}
     {isLoading && <p>...Loading</p>}
-    {/* {Boolean(elements.length) && (<ul className={css.list}>
+    {Boolean(elements.length) && (<ul className={css.list}>
         {elements}
-    </ul>)} */}
+    </ul>)}
 </>
  )
 
