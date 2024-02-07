@@ -1,12 +1,17 @@
 import axios from 'axios';
 
-const AUTH_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1Y2Y1OWVlNGU5MDBlZWE1Y2RjYTZmZjg1Y2ZjZjYzMiIsInN1YiI6IjYyZDQ2ZjAzMjNiY2Y0MDA2N2JjYjlhZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.w5awqCkwdiuiKizkHQ6nd_Gg4XFts1n4CVGP8Yrp2uM';
+const API_KEY = '5cf59ee4e900eea5cdca6ff85cfcf632';
 
-axios.defaults.baseURL = 'https://api.themoviedb.org/3/trending/movie/';
-axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+const instance = axios.create ({
+    baseURL: 'https://api.themoviedb.org/3',
+    params: {
+        api_key: API_KEY
+    }
+})
 
 
-export const FetchTrendingMovies = async () => {
-    const response = await axios.get();
-    return response;
+export const FetchTrendingMovies = () => {
+    return instance.get('/trending/movie/day');  
 }
+
+

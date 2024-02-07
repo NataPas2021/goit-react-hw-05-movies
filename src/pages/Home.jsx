@@ -1,9 +1,12 @@
  //import MovieDetails from '../'
+
+import Movies from "components/Movies/Movies";
+
  
  const Home = () => {
  return (
     <div>
-      
+      <Movies />
     </div>
  )
 };
