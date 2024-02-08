@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-//import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import css from '../MoviesList/MoviesList.module.css';
 import { FetchTrendingMovies } from "api";
 //import { fetchTrending } from "api"; 
@@ -15,12 +15,10 @@ useEffect(() => {
         try {
             setIsLoading(true);
             const data = await FetchTrendingMovies();
-            console.log(data);
-            setMovies(data?.length ? data : []);
-            console.log(movies);
+            setMovies(data);
         }
         catch {
-            setError(error);
+            setError('Oops, something went wrong. Please, reload the page');
         }
         finally {
             setIsLoading(false); 
@@ -29,7 +27,30 @@ useEffect(() => {
 
     fetchTrend();
 
-}, [])
+}, []);
+
+console.log(movies);
+
+ return (
+    <>
+    {error && <p className={css.error}>{error}</p>}
+    {isLoading && <p>...Loading</p>}
+     (<ul className={css.list}>
+    {movies.map(({id, title}) => {
+      return <li key={id} className={css.item}>
+        <Link to={`/movies/${id}`} >{title}</Link>
+        </li>
+  })} 
+    </ul>)
+</>
+ )
+
+}
+
+export default MoviesList;
+
+
+
 
 // useEffect(() => {
 //         fetchTrending()
@@ -38,23 +59,3 @@ useEffect(() => {
 //           })
 //           .catch(error => console.log(error));
 //       }, []);
- 
-
-//  const elements = movies.map(({ id, title }) => (
-//     <li key={id} className={css.item}>
-//         <Link to={`/movies/${id}`}>{title}</Link>
-//     </li>));
-
- return (
-    <>
-    {error && <p className={css.error}>{error}</p>}
-    {isLoading && <p>...Loading</p>}
-    {/* {Boolean(elements.length) && (<ul className={css.list}>
-        {elements}
-    </ul>)} */}
-</>
- )
-
-}
-
-export default MoviesList;
