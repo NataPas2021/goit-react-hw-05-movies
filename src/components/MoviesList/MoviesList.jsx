@@ -5,7 +5,7 @@ import { FetchTrendingMovies } from "api";
 //import { fetchTrending } from "api"; 
 
 const MoviesList = () => {
- const [movies, setMovies] = useState();
+ const [movies, setMovies] = useState([]);
  const [isLoading, setIsLoading] = useState(false);
  const [error, setError] = useState(null);
 
@@ -15,7 +15,7 @@ useEffect(() => {
         try {
             setIsLoading(true);
             const data = await FetchTrendingMovies();
-            setMovies(data);
+            setMovies(data?.length ? data : []);
         }
         catch {
             setError('Oops, something went wrong. Please, reload the page');
@@ -35,13 +35,13 @@ console.log(movies);
     <>
     {error && <p className={css.error}>{error}</p>}
     {isLoading && <p>...Loading</p>}
-     (<ul className={css.list}>
+     <ul className={css.list}>
     {movies.map(({id, title}) => {
       return <li key={id} className={css.item}>
         <Link to={`/movies/${id}`} >{title}</Link>
         </li>
   })} 
-    </ul>)
+    </ul>
 </>
  )
 
