@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import css from '../MoviesList/MoviesList.module.css';
 import { FetchTrendingMovies } from "api";
 //import { fetchTrending } from "api"; 
@@ -9,6 +9,7 @@ const MoviesList = () => {
  const [isLoading, setIsLoading] = useState(false);
  const [error, setError] = useState(null);
 
+ const location = useLocation();
  
 useEffect(() => {
     const fetchTrend = async () => {
@@ -38,7 +39,7 @@ console.log(movies);
      <ul className={css.list}>
     {movies.map(({id, title}) => {
       return <li key={id} className={css.item}>
-        <Link to={`/movies/${id}`} >{title}</Link>
+        <Link to={`/movies/${id}`} state={{from: location}} >{title}</Link>
         </li>
   })} 
     </ul>
