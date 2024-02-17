@@ -1,0 +1,25 @@
+.genresList {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.genreItem {
+    margin-right: 8px;
+}
+
+.poster {
+    display: block;
+}
+
+.listInfo {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.listItem {
+    margin-right: 15px;
+    margin-left: 0;
+}
