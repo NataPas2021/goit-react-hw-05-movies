@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/473.9a76686f.chunk.css","mappings":"AAAA,gCACI,aAAc,CACd,iBACJ","sources":["pages/MoviesCastPage/MovieCastPage.module.css"],"sourcesContent":[".castPhoto {\n    display: block;  \n    position: relative;\n}\n\n"],"names":[],"sourceRoot":""}
